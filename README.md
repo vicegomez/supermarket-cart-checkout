@@ -2,4 +2,4 @@
 Designs,implements and tests a checkout system for a supermarket
 
 ## travis-ci
-https://github.com/vicegomez/supermarket-cart-checkout
+https://travis-ci.org/vicegomez/supermarket-cart-checkout
