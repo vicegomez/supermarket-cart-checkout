@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Contains Cart Model which allows to performs several actions with a Cart.
  *
  * @author vicente.gomez
  */
@@ -24,7 +24,14 @@ public class Cart {
   public Map<String, Integer> getScannedProducts() {
 	return scannedProducts;
   }
-
+  
+  /**
+   * Scans the cartItem and adds it to scanned cart items list. If it already exists just updates 
+   * the quantity.
+   * 
+   * @param quantity int Number of items. 
+   * @param name String Name of the item.
+   * */
   public void scan(int quantity, String name) {
 	if (scannedProducts.containsKey(name)) {
 	  int currentQuantity = scannedProducts.get(name);
@@ -34,6 +41,11 @@ public class Cart {
 	}
   }
 
+  /**
+   * Calculates the total of all the scanned products that exists in todays_prices.
+   * 
+   * @return BigDecimal The total amount
+   * */
   public BigDecimal total() {
     for (String scannedProduct : scannedProducts.keySet()) {
 	  for (CartItem item : todaysItemsPrices) {
@@ -60,6 +72,16 @@ public class Cart {
 	return total;
   }
 
+  /**
+   * Applies the Special offer discount for each item.
+   * 
+   * @param specialOffer Type of special offer
+   * @param value Price of the item
+   * @param quantity Scanned item quantity
+   * @param baseUnit Number of minimum units. 
+   * 
+   *  @return BigDecimal Price with the special offer already applied
+   * */
   private BigDecimal specialOfferDiscount(SpecialOffers specialOffer, BigDecimal value, 
 		int quantity, int baseUnit) {
 	final int threeEuros = 3;

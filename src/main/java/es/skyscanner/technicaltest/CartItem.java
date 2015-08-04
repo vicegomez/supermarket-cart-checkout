@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * Contains Structure to create new Cart Item Objects. It uses Builder pattern
  * instead of telescope constructor pattern. (Overload constructor with
- * different number of parameters)
+ * different number of parameters).
  *
  * @author vicente.gomez
  */
